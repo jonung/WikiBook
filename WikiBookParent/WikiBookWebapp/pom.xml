@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ebs.ckcest</groupId>
+    <artifactId>WikiBookParent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>WikiBookWebapp</artifactId>
+  <packaging>war</packaging>
+  <name>WikiBookWebapp Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <repositories>
+             <repository>
+                 <id>nexus</id>
+                 <url>http://10.15.62.233:8081/nexus/content/groups/public/</url>
+                 <releases>
+                    <enabled>true</enabled>
+                 </releases>
+                 <snapshots>
+                    <enabled>true</enabled>
+                 </snapshots>
+              </repository>
+           </repositories>            
+           <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <url>http://10.15.62.233:8081/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                   </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 模块间的依赖 -->
+    <dependency>
+    	<groupId>com.ebs.ckcest</groupId>
+    	<artifactId>WikiBookService</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    
+  </dependencies>
+  <build>
+    <finalName>WikiBook</finalName>
+    
+    <pluginManagement>
+		<plugins>
+			<plugin>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.1</version>
+	            <configuration>
+	                <source>1.7</source> <!-- yours Java version -->
+	                <target>1.7</target> <!-- yours Java version -->
+	            </configuration>
+	        </plugin>
+						
+			<plugin>
+			  <groupId>org.apache.tomcat.maven</groupId>
+			  <artifactId>tomcat7-maven-plugin</artifactId>
+			  <version>2.2</version> 
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <!-- server、username、password对应maven的setting下的配置 -->
+                    <server>tomcat</server>
+                    <username>admin</username>
+                    <password>admin</password>
+                    <path>/${project.build.finalName}</path>
+                    <!-- war文件路径缺省情况下指向target -->
+                    <!--<warFile>${basedir}/target/${project.build.finalName}.war</warFile>-->
+                </configuration>
+            </plugin>
+			
+		</plugins>
+		
+	</pluginManagement>
+	
+  </build>
+</project>

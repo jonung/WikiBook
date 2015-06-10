@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ebs.ckcest</groupId>
+    <artifactId>WikiBookParent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.ebs.ckcest</groupId>
+  <artifactId>WikiBookService</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>WikiBookService</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 模块间的依赖 -->
+    <dependency>
+    	<groupId>com.ebs.ckcest</groupId>
+    	<artifactId>WikiBookDao</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+  </dependencies>
+</project>
