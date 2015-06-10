@@ -13,6 +13,31 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <repositories>
+      <repository>
+          <id>nexus</id>
+          <url>http://10.15.62.233:8081/nexus/content/groups/public/</url>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+          <snapshots>
+              <enabled>true</enabled>
+          </snapshots>
+      </repository>
+  </repositories>
+  <pluginRepositories>
+      <pluginRepository>
+          <id>nexus</id>
+          <url>http://10.15.62.233:8081/nexus/content/groups/public</url>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+          <snapshots>
+              <enabled>true</enabled>
+          </snapshots>
+      </pluginRepository>
+  </pluginRepositories>
 
   <dependencies>
     <dependency>

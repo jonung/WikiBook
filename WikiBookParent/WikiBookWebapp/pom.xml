@@ -13,29 +13,29 @@
   <url>http://maven.apache.org</url>
   
   <repositories>
-             <repository>
-                 <id>nexus</id>
-                 <url>http://10.15.62.233:8081/nexus/content/groups/public/</url>
-                 <releases>
-                    <enabled>true</enabled>
-                 </releases>
-                 <snapshots>
-                    <enabled>true</enabled>
-                 </snapshots>
-              </repository>
-           </repositories>            
-           <pluginRepositories>
-                <pluginRepository>
-                    <id>nexus</id>
-                    <url>http://10.15.62.233:8081/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                   </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
+   <repository>
+       <id>nexus</id>
+       <url>http://10.15.62.233:8081/nexus/content/groups/public/</url>
+       <releases>
+          <enabled>true</enabled>
+       </releases>
+       <snapshots>
+          <enabled>true</enabled>
+       </snapshots>
+    </repository>
+  </repositories>            
+  <pluginRepositories>
+      <pluginRepository>
+          <id>nexus</id>
+          <url>http://10.15.62.233:8081/nexus/content/groups/public</url>
+          <releases>
+              <enabled>true</enabled>
+          </releases>
+          <snapshots>
+              <enabled>true</enabled>
+         </snapshots>
+      </pluginRepository>
+  </pluginRepositories>
 
   
   
