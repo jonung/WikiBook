@@ -21,6 +21,12 @@
       <scope>test</scope>
     </dependency>
     
+    <dependency>
+	  <groupId>org.apache.lucene</groupId>
+	  <artifactId>lucene-analyzers</artifactId>
+	  <version>3.6.0</version>
+	</dependency>
+	
    	<!-- 模块间的依赖 -->
     <dependency>
     	<groupId>com.ebs.ckcest</groupId>

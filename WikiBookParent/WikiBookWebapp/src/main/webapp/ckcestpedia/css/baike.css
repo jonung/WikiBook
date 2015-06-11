@@ -1,0 +1,57 @@
+@charset "utf-8";
+html body{
+}
+.mainContent{
+	width:1024px;
+	margin:0 auto;
+}
+
+.z-catalog{
+	margin-bottom:30px; 
+}
+.z-catalog h2 {
+float: left;
+width: 83px;
+_width: 80px;
+ height: auto;
+/* background: #fbfbfb; */
+/* font-size: 20px; */
+/* color: #333; */
+/* font-family: 微软雅黑,黑体,sans-serif; */
+padding-top: 22px;
+line-height: 22px;
+font-weight: 200;
+text-align: center;
+position: relative;
+_height: 1px;
+}
+.z-catalog .hideholder {
+overflow: hidden;
+height: auto;
+}
+
+h2{
+	
+}
+.headline-1-index{
+	padding:2px;
+	margin-right:10px;
+}
+
+.headline-content{
+	font-size:18px;
+}
+
+.content .para{
+	font-size:14px;
+}
+
+.searchbox{
+	margin-top:20px;
+	text-align:center;
+}
+
+.anchor-list {
+position: relative;
+clear: both;
+}

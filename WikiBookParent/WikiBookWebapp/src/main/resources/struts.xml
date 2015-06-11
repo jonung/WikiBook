@@ -23,7 +23,7 @@
 	
 	<package name="test" namespace="" extends="struts-default">
 		
-		<action name="mvcTest" class="testAction" method="test">
+		<action name="mvcTest" class="focusObtainAction" method="getFocus">
 			<result>/index.jsp</result>
 		</action>
 		
