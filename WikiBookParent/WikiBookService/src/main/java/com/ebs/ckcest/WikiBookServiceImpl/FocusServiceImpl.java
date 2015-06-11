@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.ebs.WikiBookDao.FocusLuceneSearcher;
 import com.ebs.WikiBookService.FocusService;
+import com.mysql.jdbc.log.Log;
 
  
 /**
@@ -23,7 +25,8 @@ import com.ebs.WikiBookService.FocusService;
  */
 @Service("focusService")
 public class FocusServiceImpl implements FocusService{
-
+	
+	private static Logger log = Logger.getLogger(FocusServiceImpl.class);
 	
 	/* (非 Javadoc)
 	 * <p>Title: getFocuList</p>
@@ -41,14 +44,21 @@ public class FocusServiceImpl implements FocusService{
 		String focusStr;
 		try {
 			focusStr = FocusLuceneSearcher.getFocusByTopic(topic);
+			
+			if(focusStr.length() == 0){
+				log.info("topic: " + topic + "does have any focus !");
+				return res;
+			}
+			
 			JSONArray jsonArray = new JSONArray(focusStr);
 			
 			int count = 0;
 			for(int i = 0; i < jsonArray.length(); i ++){
-				if(count > k)
+				if(count >= k)
 					break;
 				JSONObject jsonOject = jsonArray.getJSONObject(i);
 				res.add(jsonOject.getString("focus"));
+				count ++;
 			}
 			
 		} catch (IOException e) {
@@ -63,5 +73,5 @@ public class FocusServiceImpl implements FocusService{
 		return res;
 		
 	}
-
+	
 }
