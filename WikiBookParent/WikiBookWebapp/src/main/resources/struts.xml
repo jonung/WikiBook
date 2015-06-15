@@ -49,4 +49,20 @@
 		</action>
 		
 	</package>
+	
+	
+		
+	 <package name="focus" namespace = "/ckcestpedia" extends="json-default">
+   		<action name="focusObtain" class="focusObtainAction" method="getFocus">
+			<result type="json"></result>		
+		</action>
+		
+		<action name="focusContent" class="focusContentAction" method="getFocusContent">
+			<result type="json"></result>		
+		</action>
+		
+   		
+    </package> 
+    
+    
 </struts>

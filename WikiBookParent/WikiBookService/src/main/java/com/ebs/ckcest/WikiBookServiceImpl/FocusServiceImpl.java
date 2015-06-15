@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.ebs.WikiBookDao.FocusLuceneSearcher;
 import com.ebs.WikiBookService.FocusService;
+import com.mysql.jdbc.log.Log;
 
  
 /**
@@ -43,16 +44,21 @@ public class FocusServiceImpl implements FocusService{
 		String focusStr = "";
 		try {
 			focusStr = FocusLuceneSearcher.getFocusByTopic(topic);
-			
+
+			if(focusStr.length() == 0){
+				log.info("topic: " + topic + "does have any focus !");
+				return res;
+			}
 			
 			JSONArray jsonArray = new JSONArray(focusStr);
 			
 			int count = 0;
 			for(int i = 0; i < jsonArray.length(); i ++){
-				if(count > k)
+				if(count >= k)
 					break;
 				JSONObject jsonOject = jsonArray.getJSONObject(i);
 				res.add(jsonOject.getString("focus"));
+				count ++;
 			}
 			
 		} catch (IOException e) {
@@ -68,10 +74,12 @@ public class FocusServiceImpl implements FocusService{
 		
 	}
 	
+	
 	public static void main(String[] args) throws IOException{
 				
 		String res = FocusLuceneSearcher.getFocusByTopic("PN结");
 		System.out.println(res);
 	}
+
 
 }
