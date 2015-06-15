@@ -34,7 +34,7 @@ public class FocusObtainAction extends ActionSupport{
 	private static final long serialVersionUID = 2813446200617442634L;
 	private static Logger log = Logger.getLogger(FocusObtainAction.class);
 	
-	private String topic = "传感器";
+	private String topic = "PN结";
 	private int k = 10;
 	@Autowired
 	private FocusService focusService;

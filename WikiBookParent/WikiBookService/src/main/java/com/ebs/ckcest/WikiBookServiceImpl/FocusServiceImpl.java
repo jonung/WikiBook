@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,8 @@ import com.ebs.WikiBookService.FocusService;
  */
 @Service("focusService")
 public class FocusServiceImpl implements FocusService{
-
+	
+	private static Logger log = Logger.getLogger(FocusServiceImpl.class);
 	
 	/* (非 Javadoc)
 	 * <p>Title: getFocuList</p>
@@ -38,9 +40,11 @@ public class FocusServiceImpl implements FocusService{
 		// TODO Auto-generated method stub
 		List<String> res = new ArrayList<String>();
 			
-		String focusStr;
+		String focusStr = "";
 		try {
 			focusStr = FocusLuceneSearcher.getFocusByTopic(topic);
+			
+			
 			JSONArray jsonArray = new JSONArray(focusStr);
 			
 			int count = 0;
@@ -62,6 +66,12 @@ public class FocusServiceImpl implements FocusService{
 			
 		return res;
 		
+	}
+	
+	public static void main(String[] args) throws IOException{
+				
+		String res = FocusLuceneSearcher.getFocusByTopic("PN结");
+		System.out.println(res);
 	}
 
 }
