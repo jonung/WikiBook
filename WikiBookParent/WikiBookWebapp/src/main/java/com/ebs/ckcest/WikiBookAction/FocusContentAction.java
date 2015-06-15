@@ -1,6 +1,7 @@
 package com.ebs.ckcest.WikiBookAction;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.ebs.WikiBookService.FocusContentService;
 import com.ebs.WikiBookService.FocusService;
+import com.ebs.ckcest.imgService.CrawlerImagesAndPages;
 import com.opensymphony.xwork2.ActionSupport;
 
  
@@ -37,6 +39,8 @@ public class FocusContentAction extends ActionSupport{
 	private String keyword;
 	private String result;
 	
+	private String imgUrl;
+	
 	@Autowired
 	private FocusService focusService;
 	@Autowired
@@ -58,7 +62,11 @@ public class FocusContentAction extends ActionSupport{
 		
 	public String getFocusContent() throws ResourceException, IOException, JSONException{
 		result = focusContentService.getContentForFocus(keyword);
-				
+		String key=URLEncoder.encode(keyword, "UTF-8");
+		String url="http://image.baidu.com/i?tn=baiduimagejson&ie=utf-8&oe=utf-8&pn=0&word=" + key;
+		System.out.println("url" + url);
+		imgUrl = CrawlerImagesAndPages.get(url, 2);
+		log.info("imgUrl: " + imgUrl);
 		return SUCCESS;
 	}
 
@@ -100,6 +108,26 @@ public class FocusContentAction extends ActionSupport{
 	
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+
+
+	/**
+	 * @return imgUrl
+	 */
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+
+
+	/**
+	 * @param imgUrl 要设置的 imgUrl
+	 */
+	
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 	
